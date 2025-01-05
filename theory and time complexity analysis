@@ -1,0 +1,69 @@
+Theory
+Problem Statement:
+Given an array a and a target sum 
+𝑘
+k, find the indices of the two numbers in the array that add up to.
+Return the indices as a vector.
+
+Approach:
+
+Use a hash map to store the elements of the array as keys and their indices as values.
+For every element 𝑎[𝑖]
+a[i] in the array, check if 𝑘−𝑎[𝑖]
+k−a[i] exists in the hash map:
+If yes, 
+𝑎[𝑖]
+a[i] and 
+𝑘−𝑎[𝑖]
+k−a[i] are the required pair.
+Store the current element 
+𝑎[𝑖]
+a[i] in the hash map as you iterate through the array.
+Algorithm:
+
+Traverse the array while maintaining a hash map to store the elements seen so far and their indices.
+For every element 𝑎[𝑖]
+a[i], check if 𝑘−𝑎[𝑖]
+k−a[i] exists in the hash map:
+If found, return the indices of the current element and its complement.
+Store the current element 
+𝑎[𝑖]
+a[i] in the hash map with its index.
+Complexity:
+
+Time Complexity: 
+𝑂(𝑛)
+O(n), where 
+𝑛
+n is the size of the array. Each element is processed once.
+Space Complexity: 
+𝑂(𝑛)
+O(n), for the hash map.
+Algorithm Explanation
+Initialization:
+
+mp: A hash map to store elements as keys and their indices as values.
+result: A vector to store the indices of the pair.
+Iterating through the Array:
+
+Find Complement:
+For each element 𝑎[𝑖]
+a[i], calculate 𝑘−𝑎[𝑖]
+k−a[i].
+Check if 
+𝑘−𝑎[𝑖]
+k−a[i] exists in the hash map:
+If yes, the current element 
+𝑎[𝑖]
+a[i] and its complement 
+𝑘−𝑎[𝑖]
+k−a[i] are the required pair.
+Store their indices in result and exit the loop.
+Update Hash Map:
+Store the current element 
+𝑎[𝑖]
+a[i] in the hash map with its index.
+Returning the Result:
+
+Return the result vector containing the indices of the two elements.
+
