@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& a, int k) {
+        int n = a.size();
+        unordered_map<int, int> mp; // Hash map to store elements and their indices
+        vector<int> result;        // Vector to store the result indices
+
+        // Traverse the array
+        for (int i = 0; i < n; i++) {
+            // Check if the complement (k - a[i]) exists in the hash map
+            if (mp.find(k - a[i]) != mp.end()) {
+                // If found, push the indices of the current element and its complement
+                result.push_back(i);
+                result.push_back(mp[k - a[i]]);
+                break; // Exit the loop once the pair is found
+            }
+
+            // Store the current element and its index in the hash map
+            mp[a[i]] = i;
+        }
+
+        return result; // Return the result indices
+    }
+};
